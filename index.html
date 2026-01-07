@@ -100,6 +100,22 @@
         </div>
     </div>
 
+    <!-- Error popup modal for validation errors -->
+    <div id="errorPopup" class="popup-overlay hidden">
+        <div class="popup-content error-popup">
+            <!-- Error icon -->
+            <div class="popup-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#dc3545"/>
+                </svg>
+            </div>
+            <!-- Error message content -->
+            <h3>Age Requirement</h3>
+            <p id="errorMessage">Student must be at least 10 years old to register for courses.</p>
+            <button id="errorOkButton" class="error-ok-btn">OK</button>
+        </div>
+    </div>
+
     <!-- JavaScript file for form functionality -->
     <script src="script.js"></script>
 </body>

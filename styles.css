@@ -279,3 +279,33 @@ header h1 {
     width: 90%;
     border: 2px solid #007bff;
 }
+
+/* Error popup styling */
+.popup-content.error-popup {
+    border: 2px solid #dc3545;
+}
+
+.popup-content.error-popup h3 {
+    color: #dc3545;
+}
+
+.error-ok-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.error-ok-btn:hover {
+    background: #c82333;
+}
+
+.error-ok-btn:active {
+    background: #bd2130;
+}

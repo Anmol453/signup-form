@@ -9,7 +9,6 @@ A simple, responsive web form for student course registration with validation an
 - **Phone Validation**: Rejects invalid patterns (all zeros, sequential numbers, etc.)
 - **Real-time Feedback**: Instant validation as users type
 - **Success Popup**: 3-second confirmation modal after registration
-- **Student Counter**: Displays total registered students
 - **Responsive Design**: Works on desktop and mobile devices
 
 ## Files
@@ -36,7 +35,7 @@ A simple, responsive web form for student course registration with validation an
 ## Data Storage
 
 Students are stored in a JavaScript array within the application. Each student receives:
-- Unique ID (STU + timestamp + random)
+- Unique ID
 - All form data
 - Registration timestamp
 

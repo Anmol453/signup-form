@@ -13,9 +13,13 @@ class StudentRegistration {
         this.form = document.getElementById('studentForm');
         this.successMessage = document.getElementById('successMessage');
         this.successPopup = document.getElementById('successPopup');
+        this.errorPopup = document.getElementById('errorPopup');
+        this.errorMessage = document.getElementById('errorMessage');
+        this.errorOkButton = document.getElementById('errorOkButton');
         
         // Debug: Check if popup element exists
         console.log('Success popup element:', this.successPopup);
+        console.log('Error popup element:', this.errorPopup);
         
         // Initialize the application
         this.initializeEventListeners();
@@ -46,6 +50,11 @@ class StudentRegistration {
             field.addEventListener('input', this.capitalizeNameField.bind(this));
             field.addEventListener('blur', this.capitalizeNameField.bind(this));
         });
+
+        // Error popup OK button click handler
+        if (this.errorOkButton) {
+            this.errorOkButton.addEventListener('click', this.hideErrorPopup.bind(this));
+        }
     }
 
     // Main form submission handler//
@@ -105,8 +114,8 @@ class StudentRegistration {
             
             if (!this.isValidDateOfBirth(dateField.value)) {
                 if (age < 10) {
-                    // Show alert for age requirement
-                    alert('Student must be at least 10 years old to register for courses.');
+                    // Show custom error popup instead of browser alert
+                    this.showErrorPopup('Student must be at least 10 years old to register for courses.');
                     this.showFieldError(dateField, 'Student must be at least 10 years old');
                 } else {
                     this.showFieldError(dateField, 'Please enter a valid date of birth');
@@ -400,6 +409,32 @@ class StudentRegistration {
             this.form.style.pointerEvents = 'auto';
             this.form.style.opacity = '1';
         }, 3000);
+    }
+
+    /**
+     * Show custom error popup with message
+     * @param {string} message Error message to display
+     */
+    showErrorPopup(message) {
+        if (this.errorPopup && this.errorMessage) {
+            // Set the error message
+            this.errorMessage.textContent = message;
+            
+            // Show error popup
+            this.errorPopup.classList.remove('hidden');
+            
+            console.log('Showing error popup with message:', message);
+        }
+    }
+
+    /**
+     * Hide the error popup
+     */
+    hideErrorPopup() {
+        if (this.errorPopup) {
+            this.errorPopup.classList.add('hidden');
+            console.log('Error popup hidden');
+        }
     }
 
     /**
